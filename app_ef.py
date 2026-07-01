@@ -10,11 +10,11 @@ import time
 # CONFIGURACIÓN
 # =======================
 
-GOOGLE_API_KEY = "reemplazar"
-MONGODB_URI = "reemplazar"
-COHERE_API_KEY = "reemplazar"
+GOOGLE_API_KEY = os.environ.get("GOOGLE_API_KEY")
+MONGODB_URI = os.environ.get("MONGODB_URI")
+COHERE_API_KEY = os.environ.get("COHERE_API_KEY")
 
-USER = "Maria Del Carmen Mendoza Mechan"
+USER = "Diego Alejandro Quinones Vivas"
 
 if not GOOGLE_API_KEY or not MONGODB_URI:
     st.error("❌ Faltan las variables de entorno GOOGLE_API_KEY o MONGODB_URI")
