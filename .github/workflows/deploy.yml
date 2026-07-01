@@ -35,19 +35,3 @@ jobs:
           push: true
           tags: crprefinal.azurecr.io/nombre-imagen:latest #aca debe de ir el nombre de la imagen 
           file: ./Dockerfile
-
-  deploy:
-    runs-on: ubuntu-latest
-    
-    needs: build
-    
-    steps:
-      
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'waprefinal' #nombre de app services 
-          slot-name: 'Production'
-          images: 'crprefinal.azurecr.io/nombre-imagen:latest' #nombre de la imagen 
-          publish-profile: ${{ secrets.APP_PUBLISH_PROFILE }}  # Se debe de subir el contenido de la publish profile de azure que está en overview
